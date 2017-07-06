@@ -47,6 +47,7 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
     private String mDefaultText;
     private String mAllText;
     private boolean mAllSelected;
+    private boolean mIsShowing;
     private AllSelectedDisplayMode mAllSelectedDisplayMode;
     private MultiSpinnerListener mListener;
 
@@ -88,7 +89,9 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
                     for (int i = 0; i < mSelected.length; i++) {
                         mSelected[i] = mOldSelection[i];
                     }
-
+                    
+                    mIsShowing = false;
+                    
                     dialog.dismiss();
                 }
             });
@@ -97,11 +100,16 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
                 public void onClick(DialogInterface dialog, int which) {
                     refreshSpinner();
                     mListener.onItemsSelected(mSelected);
+                    
+                    mIsShowing = false;
+                    
                     dialog.dismiss();
                 }
             });
 
             builder.show();
+    
+            mIsShowing = true;
         }
     };
 
@@ -160,6 +168,10 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
 
     public interface MultiSpinnerListener {
         public void onItemsSelected(boolean[] selected);
+    }
+
+    public boolean isShowing() {
+        return this.mIsShowing;
     }
 
     public boolean[] getSelected() {
