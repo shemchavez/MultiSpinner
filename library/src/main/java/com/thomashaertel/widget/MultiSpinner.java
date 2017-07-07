@@ -90,6 +90,8 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
 //                        mSelected[i] = mOldSelection[i];
 //                    }
                     
+                    mSelected = mOldSelection;
+                    
                     mIsShowing = false;
                     
                     dialog.dismiss();
