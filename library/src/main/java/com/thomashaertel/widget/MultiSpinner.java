@@ -70,6 +70,9 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
     private OnClickListener onClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
+    
+            mIsShowing = true;
+    
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
             String choices[] = new String[mAdapter.getCount()];
@@ -110,8 +113,6 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
             });
 
             builder.show();
-    
-            mIsShowing = true;
         }
     };
 
