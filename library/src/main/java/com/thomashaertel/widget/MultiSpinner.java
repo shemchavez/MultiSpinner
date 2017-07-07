@@ -86,9 +86,9 @@ public class MultiSpinner extends TextView implements OnMultiChoiceClickListener
 
             builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    for (int i = 0; i < mSelected.length; i++) {
-                        mSelected[i] = mOldSelection[i];
-                    }
+//                    for (int i = 0; i < mSelected.length; i++) {
+//                        mSelected[i] = mOldSelection[i];
+//                    }
                     
                     mIsShowing = false;
                     
